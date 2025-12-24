@@ -7,11 +7,8 @@
   <title>RPS+ — Mobile-First</title>
   <style>
     :root{
-      /* “Jobs would smile” vibe: calm, minimal, crisp */
-      --bg0:#070a10;
-      --bg1:#0b1020;
+      --bg0:#070a10; --bg1:#0b1020;
       --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.10);
       --line: rgba(255,255,255,.10);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.62);
@@ -22,11 +19,8 @@
       --warn: #f59e0b;
       --bad:  #ef4444;
 
-      --accent: #7c3aed;  /* subtle purple */
-      --accent2:#06b6d4;  /* subtle cyan */
-      --glow: rgba(124,58,237,.35);
-
-      --tap: 56px;
+      --accent: #7c3aed;
+      --accent2:#06b6d4;
       --max: 720px;
     }
 
@@ -45,7 +39,6 @@
       padding: env(safe-area-inset-top) 14px env(safe-area-inset-bottom);
     }
 
-    /* subtle moving “aurora” */
     .aurora{
       position:fixed; inset:-40px;
       pointer-events:none; z-index:0;
@@ -77,20 +70,15 @@
       padding: 10px 6px 0;
     }
 
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      user-select:none;
-    }
+    .brand{ display:flex; align-items:center; gap:10px; user-select:none; }
     .logo{
       width:38px; height:38px; border-radius:12px;
       background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(6,182,212,.8));
       box-shadow: 0 10px 25px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
     }
     .logo::after{
-      content:"";
-      position:absolute; inset:-60%;
+      content:""; position:absolute; inset:-60%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
       transform: rotate(25deg);
       animation: shine 2.8s ease-in-out infinite;
@@ -101,20 +89,11 @@
       100%{ transform: translateX(40%) rotate(25deg); opacity:0; }
     }
 
-    .title{
-      display:flex; flex-direction:column; line-height:1.05;
-    }
-    .title strong{
-      font-size: 1.05rem;
-      letter-spacing:.2px;
-    }
-    .title span{
-      font-size: .82rem; color: var(--muted);
-    }
+    .title{ display:flex; flex-direction:column; line-height:1.05; }
+    .title strong{ font-size: 1.05rem; letter-spacing:.2px; }
+    .title span{ font-size: .82rem; color: var(--muted); }
 
-    .top-actions{
-      display:flex; gap:10px; align-items:center;
-    }
+    .top-actions{ display:flex; gap:10px; align-items:center; }
 
     .chip{
       display:flex; align-items:center; gap:8px;
@@ -127,15 +106,8 @@
       color: var(--muted);
       box-shadow: 0 10px 30px rgba(0,0,0,.22);
     }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: rgba(255,255,255,.25);
-      box-shadow: 0 0 0 0 rgba(124,58,237,.0);
-    }
-    .dot.on{
-      background: var(--good);
-      animation: pulseDot 1.4s ease-in-out infinite;
-    }
+    .dot{ width:10px; height:10px; border-radius:50%; background: rgba(255,255,255,.25); }
+    .dot.on{ background: var(--good); animation: pulseDot 1.4s ease-in-out infinite; }
     @keyframes pulseDot{
       0%,100%{ box-shadow: 0 0 0 0 rgba(34,197,94,.0); }
       50%{ box-shadow: 0 0 0 10px rgba(34,197,94,.12); }
@@ -164,30 +136,15 @@
       overflow:hidden;
     }
 
-    .hero{
-      padding: 14px 14px 10px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
+    .hero{ padding: 14px 14px 10px; display:flex; flex-direction:column; gap: 10px; }
 
-    .hero-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-    }
+    .hero-top{ display:flex; align-items:flex-start; justify-content:space-between; gap: 10px; }
 
-    .mode{
-      display:flex; flex-direction:column; gap:4px;
-    }
+    .mode{ display:flex; flex-direction:column; gap:4px; }
     .mode b{ font-size: 1.05rem; letter-spacing:.2px; }
     .mode small{ color: var(--muted); font-size: .85rem; }
 
-    .toggles{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .toggles{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
 
     .seg{
       display:flex;
@@ -197,14 +154,11 @@
       background: rgba(255,255,255,.04);
     }
     .seg button{
-      border:0;
-      background: transparent;
-      color: var(--muted);
-      padding: 9px 12px;
-      font-weight: 600;
-      font-size:.85rem;
+      border:0; background: transparent; color: var(--muted);
+      padding: 9px 12px; font-weight: 800; font-size:.80rem;
       cursor:pointer;
       transition: background .18s ease, color .18s ease;
+      text-transform: uppercase; letter-spacing:.08em;
     }
     .seg button.active{
       background: rgba(255,255,255,.10);
@@ -223,12 +177,9 @@
     .mini input[type="range"]{ width: 120px; }
     .mini input{ accent-color: var(--accent2); }
 
-    .arena{
-      padding: 12px 14px 14px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
+    .hint{ color: var(--muted); font-size:.88rem; line-height:1.25; }
+
+    .arena{ padding: 12px 14px 14px; display:grid; grid-template-columns: 1fr; gap: 12px; }
 
     .cards{
       display:grid;
@@ -237,31 +188,21 @@
       gap: 10px;
     }
 
-    .vs{
-      display:grid; place-items:center;
-      font-weight:900;
-      color: rgba(255,255,255,.78);
-      opacity:.9;
-    }
+    .vs{ display:grid; place-items:center; font-weight:900; color: rgba(255,255,255,.78); opacity:.9; }
     .vs .badge{
       width: 56px; height:56px; border-radius: 18px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.04);
       display:grid; place-items:center;
       box-shadow: 0 12px 30px rgba(0,0,0,.25);
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
     }
     .vs .badge::after{
-      content:"";
-      position:absolute; inset:-60%;
+      content:""; position:absolute; inset:-60%;
       background: radial-gradient(circle, rgba(255,255,255,.18), transparent 60%);
       animation: slowSpin 6s linear infinite;
     }
-    @keyframes slowSpin{
-      from{ transform: rotate(0deg); }
-      to{ transform: rotate(360deg); }
-    }
+    @keyframes slowSpin{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
     .vs .badge span{ position:relative; z-index:1; font-size: 1.2rem; }
 
     .card{
@@ -271,7 +212,6 @@
       background: rgba(255,255,255,.04);
       display:flex; flex-direction:column; gap:10px;
       min-height: 120px;
-      position:relative;
       overflow:hidden;
     }
     .card h3{
@@ -291,9 +231,7 @@
         radial-gradient(160px 120px at 30% 10%, rgba(124,58,237,.22), transparent 60%),
         radial-gradient(160px 120px at 70% 90%, rgba(6,182,212,.18), transparent 60%),
         rgba(255,255,255,.03);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       font-size: 2.1rem;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
@@ -323,63 +261,6 @@
       white-space:nowrap;
     }
 
-    .result{
-      padding: 12px 14px 14px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
-    .resultbox{
-      border-radius: 18px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      padding: 14px;
-      min-height: 68px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      position:relative;
-      overflow:hidden;
-    }
-    .resultbox::before{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
-      transform: translateX(-120%);
-      transition: transform .6s ease;
-    }
-    .resultbox.flash::before{ transform: translateX(120%); }
-
-    .resulttext{
-      font-size: 1.02rem;
-      line-height:1.25;
-    }
-    .resultmeta{
-      display:flex; flex-direction:column; gap:6px;
-      align-items:flex-end;
-      text-align:right;
-      color: var(--muted);
-      font-size:.82rem;
-      min-width: 120px;
-    }
-
-    .tag{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight:800;
-      letter-spacing:.06em;
-      font-size:.74rem;
-      text-transform: uppercase;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-    }
-    .tag.win{ border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); }
-    .tag.lose{ border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.12); }
-    .tag.tie{ border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); }
-
     .kbd{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
       font-size:.78rem;
@@ -391,7 +272,6 @@
       white-space:nowrap;
     }
 
-    /* mobile-first big choice buttons */
     .choices{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -409,20 +289,56 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       box-shadow: 0 16px 35px rgba(0,0,0,.24);
       user-select:none;
-      position:relative;
-      overflow:hidden;
     }
     .choiceBtn:active{ transform: scale(.98); }
     .choiceBtn:hover{ background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
     .choiceBtn[disabled]{ opacity:.55; pointer-events:none; }
     .choiceEmoji{ font-size: 2.0rem; }
-    .choiceName{ font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.72rem; color: rgba(255,255,255,.80); }
+    .choiceName{ font-weight:900; letter-spacing:.08em; text-transform:uppercase; font-size:.72rem; color: rgba(255,255,255,.80); }
     .choiceHint{ font-size:.78rem; color: var(--muted); }
-
     .choiceBtn.selected{
       border-color: rgba(6,182,212,.35);
       box-shadow: 0 0 0 8px rgba(6,182,212,.08), 0 18px 45px rgba(0,0,0,.30);
     }
+
+    .result{ padding: 12px 14px 14px; display:flex; flex-direction:column; gap: 10px; }
+    .resultbox{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+      min-height: 68px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      position:relative; overflow:hidden;
+    }
+    .resultbox::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+      transform: translateX(-120%);
+      transition: transform .6s ease;
+    }
+    .resultbox.flash::before{ transform: translateX(120%); }
+
+    .resulttext{ font-size: 1.02rem; line-height:1.25; }
+    .resultmeta{ display:flex; flex-direction:column; gap:6px; align-items:flex-end; text-align:right; color: var(--muted); font-size:.82rem; min-width: 120px; }
+
+    .tag{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight:900;
+      letter-spacing:.06em;
+      font-size:.74rem;
+      text-transform: uppercase;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+    .tag.win{ border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); }
+    .tag.lose{ border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.12); }
+    .tag.tie{ border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); }
 
     .score{
       display:grid;
@@ -464,7 +380,6 @@
       justify-content: space-between;
       align-items:center;
     }
-
     .btn{
       border: 1px solid var(--line);
       background: rgba(255,255,255,.06);
@@ -472,7 +387,7 @@
       padding: 12px 14px;
       border-radius: 16px;
       cursor:pointer;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing:.08em;
       text-transform: uppercase;
       font-size:.78rem;
@@ -495,9 +410,7 @@
       border-color: rgba(239,68,68,.32);
       background: rgba(239,68,68,.10);
     }
-    .btn.ghost{
-      background: transparent;
-    }
+    .btn.ghost{ background: transparent; }
 
     .toast{
       position: fixed;
@@ -519,10 +432,7 @@
       display:flex; align-items:center; gap:10px;
       font-size:.9rem;
     }
-    .toast.show{
-      opacity:1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
 
     dialog{
       border: 1px solid rgba(255,255,255,.14);
@@ -534,10 +444,7 @@
       padding: 0;
       overflow:hidden;
     }
-    dialog::backdrop{
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(2px);
-    }
+    dialog::backdrop{ background: rgba(0,0,0,.55); backdrop-filter: blur(2px); }
     .modalHead{
       padding: 14px 14px 10px;
       display:flex; align-items:center; justify-content:space-between;
@@ -556,28 +463,18 @@
     .row label{ color: var(--muted); font-size:.9rem; }
     .row input[type="range"]{ width: 160px; }
     .row select, .row input[type="checkbox"]{ accent-color: var(--accent2); }
-    .hint{
-      color: var(--muted);
-      font-size:.88rem;
-      line-height:1.25;
-    }
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
+
+    .grid2{ display:grid; grid-template-columns: 1fr; gap: 10px; }
     @media (min-width: 680px){
       body{ padding-left: 18px; padding-right: 18px; }
-      .grid2{ grid-template-columns: 1fr 1fr; }
       .hero{ padding: 16px 18px 12px; }
       .arena, .result, .footer-actions{ padding-left: 18px; padding-right: 18px; }
       .choices{ gap: 12px; }
       .choiceBtn{ min-height: 110px; }
       .choiceEmoji{ font-size: 2.35rem; }
       .choiceName{ font-size:.78rem; }
+      .grid2{ grid-template-columns: 1fr 1fr; }
     }
-
-    /* reduce motion support */
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; }
       .aurora{ display:none; }
@@ -615,9 +512,11 @@
         </div>
 
         <div class="toggles">
+          <!-- ✅ Added "Joe Version" -->
           <div class="seg" role="tablist" aria-label="Mode">
             <button id="modeClassic" class="active" onclick="setMode('classic')" role="tab">Classic</button>
             <button id="modeLizard" onclick="setMode('rpsls')" role="tab">RPSLS</button>
+            <button id="modeJoe" onclick="setMode('joe')" role="tab">Joe</button>
           </div>
 
           <div class="mini" title="First to N wins">
@@ -630,7 +529,7 @@
       </div>
 
       <div class="hint" id="microHint">
-        Tip: tap a move, or use keyboard <span class="kbd">R</span> <span class="kbd">P</span> <span class="kbd">S</span> (desktop).
+        Tip: tap a move, or use keyboard <span class="kbd">R</span> <span class="kbd">P</span> <span class="kbd">S</span> (desktop). Joe tip: throw rock. Always.
       </div>
     </section>
 
@@ -729,13 +628,7 @@
       </div>
 
       <div class="hint">
-        Bonus variables included:
-        <ul style="margin:8px 0 0 18px; color: rgba(255,255,255,.74); line-height:1.35;">
-          <li><b>Skill</b>: CPU learns your tendencies (but doesn’t “cheat” …much).</li>
-          <li><b>First-to</b>: match format, progress bar + match end celebration.</li>
-          <li><b>RPSLS</b> mode: Rock Paper Scissors Lizard Spock.</li>
-          <li><b>Share/Copy</b>: one-tap bragging rights.</li>
-        </ul>
+        New mode included: <b>Joe Version</b> — where rock always wins. Because childhood.
       </div>
 
       <div class="row" style="justify-content:flex-end;">
@@ -747,35 +640,23 @@
   <canvas id="confettiCanvas" style="position:fixed; inset:0; pointer-events:none; z-index:40;"></canvas>
 
   <script>
-    // -----------------------------
-    // RPS+ — mobile-first, fun extras
-    // -----------------------------
-
-    // State
     const LS_KEY = "rps_plus_v1";
+
     let state = {
-      mode: "classic", // classic | rpsls
+      mode: "classic", // classic | rpsls | joe
       score: { wins: 0, losses: 0, ties: 0 },
       streak: 0,
       round: 1,
       firstTo: 7,
       autoplay: false,
       autoplayId: null,
-
-      // "bonus variables"
-      skill: 50,          // 0..100 CPU adapts to your tendencies
+      skill: 50,
       haptics: true,
       sounds: true,
       confetti: true,
-
-      // lightweight pattern tracking
-      history: {
-        player: [],
-        cpu: []
-      }
+      history: { player: [], cpu: [] }
     };
 
-    // Modes
     const MODES = {
       classic: {
         title: "Classic",
@@ -789,11 +670,18 @@
         sub: "Rock • Paper • Scissors • Lizard • Spock",
         moves: ["rock","paper","scissors","lizard","spock"],
         emoji: { rock:"🪨", paper:"📄", scissors:"✂️", lizard:"🦎", spock:"🖖" },
-        keys: { r:"rock", p:"paper", s:"scissors", l:"lizard", k:"spock" } // k for spocK
+        keys: { r:"rock", p:"paper", s:"scissors", l:"lizard", k:"spock" }
+      },
+      // ✅ Joe Version: still R/P/S UI, but rock always wins
+      joe: {
+        title: "Joe Version",
+        sub: "Rock • Rock • (and more Rock)",
+        moves: ["rock","paper","scissors"],
+        emoji: { rock:"🪨", paper:"📄", scissors:"✂️" },
+        keys: { r:"rock", p:"paper", s:"scissors" }
       }
     };
 
-    // Rules: who beats who
     const BEATS = {
       rock:     new Set(["scissors","lizard"]),
       paper:    new Set(["rock","spock"]),
@@ -802,7 +690,6 @@
       spock:    new Set(["scissors","rock"])
     };
 
-    // Elements
     const el = {
       choices: document.getElementById("choices"),
       playerDisplay: document.getElementById("playerDisplay"),
@@ -810,79 +697,62 @@
       resultText: document.getElementById("resultText"),
       resultTag: document.getElementById("resultTag"),
       resultBox: document.getElementById("resultBox"),
-
       wins: document.getElementById("wins"),
       losses: document.getElementById("losses"),
       ties: document.getElementById("ties"),
       bar: document.getElementById("bar"),
-
       modeTitle: document.getElementById("modeTitle"),
       modeSub: document.getElementById("modeSub"),
-
       streakText: document.getElementById("streakText"),
       streakDot: document.getElementById("streakDot"),
       roundNum: document.getElementById("roundNum"),
-
       lastPlayer: document.getElementById("lastPlayer"),
       lastCpu: document.getElementById("lastCpu"),
       cpuMood: document.getElementById("cpuMood"),
-
       firstTo: document.getElementById("firstTo"),
       firstToVal: document.getElementById("firstToVal"),
       firstToLabel: document.getElementById("firstToLabel"),
-
       settingsBtn: document.getElementById("settingsBtn"),
       settingsModal: document.getElementById("settingsModal"),
-
       skill: document.getElementById("skill"),
       skillKbd: document.getElementById("skillKbd"),
       skillVal: document.getElementById("skillVal"),
-
       haptics: document.getElementById("haptics"),
       hapticsKbd: document.getElementById("hapticsKbd"),
       sounds: document.getElementById("sounds"),
       soundsKbd: document.getElementById("soundsKbd"),
       confetti: document.getElementById("confetti"),
       confettiKbd: document.getElementById("confettiKbd"),
-
       autoplayBtn: document.getElementById("autoplayBtn"),
       toast: document.getElementById("toast"),
-
       confettiCanvas: document.getElementById("confettiCanvas")
     };
 
-    // Sound (tiny, tasteful beeps via WebAudio)
     let audioCtx = null;
     function beep(type="tap"){
       if (!state.sounds) return;
       try{
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const t0 = audioCtx.currentTime;
-
         const o = audioCtx.createOscillator();
         const g = audioCtx.createGain();
         o.connect(g); g.connect(audioCtx.destination);
-
         const freq = type==="win" ? 880 : type==="lose" ? 220 : type==="tie" ? 440 : 560;
         o.frequency.setValueAtTime(freq, t0);
         o.type = "sine";
-
         g.gain.setValueAtTime(0.0001, t0);
         g.gain.exponentialRampToValueAtTime(0.12, t0 + 0.01);
         g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.18);
-
         o.start(t0);
         o.stop(t0 + 0.2);
       }catch(e){}
     }
 
-    // Haptics
     function buzz(pattern=15){
       if (!state.haptics) return;
       if (navigator.vibrate) navigator.vibrate(pattern);
     }
 
-    // Toast
     let toastTimer = null;
     function showToast(msg){
       el.toast.textContent = msg;
@@ -891,13 +761,11 @@
       toastTimer = setTimeout(()=> el.toast.classList.remove("show"), 1400);
     }
 
-    // Persist
     function load(){
       try{
         const raw = localStorage.getItem(LS_KEY);
         if (!raw) return;
         const saved = JSON.parse(raw);
-        // Merge safely
         state = {
           ...state,
           ...saved,
@@ -907,12 +775,29 @@
       }catch(e){}
     }
     function save(){
-      try{
-        localStorage.setItem(LS_KEY, JSON.stringify(state));
-      }catch(e){}
+      try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
     }
 
-    // UI builders
+    function hintFor(move){
+      if (state.mode === "joe"){
+        if (move==="rock") return "always wins";
+        if (move==="paper") return "nice try";
+        if (move==="scissors") return "adorable";
+      }
+      if (state.mode === "classic"){
+        if (move==="rock") return "break it";
+        if (move==="paper") return "wrap it";
+        if (move==="scissors") return "snip it";
+      }else{
+        if (move==="lizard") return "chomp it";
+        if (move==="spock") return "logic it";
+        if (move==="rock") return "crush it";
+        if (move==="paper") return "cover it";
+        if (move==="scissors") return "cut it";
+      }
+      return "";
+    }
+
     function renderChoices(){
       const mode = MODES[state.mode];
       el.choices.innerHTML = "";
@@ -929,22 +814,6 @@
         btn.addEventListener("click", ()=> play(m));
         el.choices.appendChild(btn);
       });
-    }
-
-    function hintFor(move){
-      if (state.mode === "classic"){
-        if (move==="rock") return "break it";
-        if (move==="paper") return "wrap it";
-        if (move==="scissors") return "snip it";
-      }else{
-        if (move==="lizard") return "chomp it";
-        if (move==="spock") return "logic it";
-        // keep others subtle
-        if (move==="rock") return "crush it";
-        if (move==="paper") return "cover it";
-        if (move==="scissors") return "cut it";
-      }
-      return "";
     }
 
     function updateHeader(){
@@ -973,8 +842,9 @@
       el.streakText.textContent = `Streak: ${state.streak}`;
       el.streakDot.classList.toggle("on", state.streak >= 3);
 
-      // CPU “mood” based on skill
-      el.cpuMood.textContent = state.skill < 35 ? "Chill" : state.skill < 70 ? "Sharp" : "Spicy";
+      // CPU “mood”
+      if (state.mode === "joe") el.cpuMood.textContent = "Geology Dept.";
+      else el.cpuMood.textContent = state.skill < 35 ? "Chill" : state.skill < 70 ? "Sharp" : "Spicy";
     }
 
     function updateScoreUI(){
@@ -995,7 +865,6 @@
 
     function flashResult(){
       el.resultBox.classList.remove("flash");
-      // force reflow
       void el.resultBox.offsetWidth;
       el.resultBox.classList.add("flash");
     }
@@ -1003,7 +872,8 @@
     function setMode(mode){
       if (!MODES[mode]) return;
       state.mode = mode;
-      // reset match pacing without nuking lifetime score
+
+      // reset match pacing
       state.round = 1;
       state.streak = 0;
       state.history.player = [];
@@ -1012,19 +882,21 @@
       el.cpuDisplay.textContent = "❓";
       el.lastPlayer.textContent = "—";
       el.lastCpu.textContent = "—";
-      el.resultText.textContent = "Mode switched. Make your move. 👆";
+      el.resultText.textContent = mode === "joe"
+        ? "Welcome to the Joe Version. Rock wins. Science loses."
+        : "Mode switched. Make your move. 👆";
       setTag("ready");
       flashResult();
 
-      // button UI
       document.getElementById("modeClassic").classList.toggle("active", mode==="classic");
       document.getElementById("modeLizard").classList.toggle("active", mode==="rpsls");
+      document.getElementById("modeJoe").classList.toggle("active", mode==="joe");
 
       renderChoices();
       updateHeader();
       updateScoreUI();
       save();
-      showToast(mode==="classic" ? "Classic mode" : "RPSLS mode");
+      showToast(mode==="joe" ? "Joe Version 🪨" : (mode==="classic" ? "Classic" : "RPSLS"));
       buzz(12);
       beep("tap");
     }
@@ -1045,7 +917,6 @@
     function setSounds(on){ state.sounds = !!on; updateHeader(); save(); }
     function setConfetti(on){ state.confetti = !!on; updateHeader(); save(); }
 
-    // Gameplay
     let locked = false;
 
     function play(playerMove){
@@ -1055,14 +926,12 @@
       const mode = MODES[state.mode];
       const emoji = mode.emoji;
 
-      // Visual: select button
       document.querySelectorAll(".choiceBtn").forEach(b=> b.classList.toggle("selected", b.dataset.move === playerMove));
 
       el.playerDisplay.textContent = emoji[playerMove] || "❓";
       el.playerDisplay.classList.add("active");
       el.lastPlayer.textContent = playerMove;
 
-      // suspense
       el.cpuDisplay.textContent = "⏳";
       el.cpuDisplay.classList.add("active");
 
@@ -1073,17 +942,14 @@
       buzz(10);
       beep("tap");
 
-      // Decide CPU move after a beat
       setTimeout(()=>{
         const cpuMove = pickCpuMove(playerMove);
         el.cpuDisplay.textContent = emoji[cpuMove] || "❓";
         el.lastCpu.textContent = cpuMove;
 
-        // Determine outcome
         const outcome = judge(playerMove, cpuMove);
         applyOutcome(outcome, playerMove, cpuMove);
 
-        // Clear highlights
         setTimeout(()=>{
           el.playerDisplay.classList.remove("active");
           el.cpuDisplay.classList.remove("active");
@@ -1094,31 +960,51 @@
       }, 520 + Math.random()*220);
     }
 
+    // ✅ Joe rules: "rock always wins"
     function judge(p, c){
+      if (state.mode === "joe"){
+        // If either side played rock, ROCK wins.
+        // If both played rock: tie.
+        if (p === "rock" && c === "rock") return "tie";
+        if (p === "rock" && c !== "rock") return "win";
+        if (p !== "rock" && c === "rock") return "lose";
+        // neither is rock → fall back to normal rules (paper vs scissors)
+        if (p === c) return "tie";
+        if (BEATS[p] && BEATS[p].has(c)) return "win";
+        return "lose";
+      }
+
       if (p === c) return "tie";
       if (BEATS[p] && BEATS[p].has(c)) return "win";
       return "lose";
     }
 
     function applyOutcome(outcome, p, c){
-      // history tracking
       state.history.player.push(p);
       state.history.cpu.push(c);
       if (state.history.player.length > 30) state.history.player.shift();
       if (state.history.cpu.length > 30) state.history.cpu.shift();
 
       let msg = "";
+      if (state.mode === "joe"){
+        if (outcome === "tie") msg = "Tie. Two rocks enter. No paper leaves.";
+        if (outcome === "win") msg = "Joe physics: ROCK wins. Always. 🪨";
+        if (outcome === "lose") msg = "You lost to rock. This is… consistent with Joe.";
+      } else {
+        if (outcome === "tie") msg = `Tie. Both chose ${p.toUpperCase()}. Civility wins.`;
+        if (outcome === "win") msg = `You win. ${p.toUpperCase()} beats ${c.toUpperCase()}. ✨`;
+        if (outcome === "lose") msg = `You lose. ${c.toUpperCase()} beats ${p.toUpperCase()}.`;
+      }
+
       if (outcome === "tie"){
         state.score.ties++;
         state.streak = 0;
-        msg = `Tie. Both chose ${p.toUpperCase()}. Civility wins.`;
         setTag("tie");
         buzz([10,40,10]);
         beep("tie");
       }else if (outcome === "win"){
         state.score.wins++;
         state.streak++;
-        msg = `You win. ${p.toUpperCase()} beats ${c.toUpperCase()}. ✨`;
         setTag("win");
         buzz(18);
         beep("win");
@@ -1126,7 +1012,6 @@
       }else{
         state.score.losses++;
         state.streak = 0;
-        msg = `You lose. ${c.toUpperCase()} beats ${p.toUpperCase()}.`;
         setTag("lose");
         buzz(30);
         beep("lose");
@@ -1141,60 +1026,42 @@
       updateScoreUI();
       save();
 
-      // Match end
-      if (state.score.wins >= state.firstTo){
-        endMatch(true);
-      }else if (state.score.losses >= state.firstTo){
-        endMatch(false);
-      }
+      if (state.score.wins >= state.firstTo) endMatch(true);
+      else if (state.score.losses >= state.firstTo) endMatch(false);
     }
 
-    // CPU: blended randomness + pattern adaptation based on "skill"
     function pickCpuMove(playerMove){
       const mode = MODES[state.mode];
       const moves = mode.moves;
 
-      // Base random
-      const base = moves[Math.floor(Math.random() * moves.length)];
+      // Joe mode: if you didn't choose rock, CPU has an “urge” to choose rock.
+      if (state.mode === "joe"){
+        const rockBias = 0.72; // Joe throws rocks. Naturally.
+        if (Math.random() < rockBias) return "rock";
+        return moves[Math.floor(Math.random() * moves.length)];
+      }
 
-      // If skill low, mostly random
+      const base = moves[Math.floor(Math.random() * moves.length)];
       if (state.skill <= 10) return base;
 
-      // Predict player's next move from simple frequency + last-move bias
       const predicted = predictPlayerNext(moves);
+      const smartChance = state.skill / 100;
+      if (Math.random() > smartChance) return base;
 
-      // Convert skill into probability of “smart pick”
-      const smartChance = state.skill / 100; // 0..1
-      const roll = Math.random();
-
-      if (roll > smartChance) return base;
-
-      // Choose a counter move that beats predicted move
       const counters = moves.filter(m => BEATS[m] && BEATS[m].has(predicted));
-      if (counters.length === 0) return base;
-
-      // Slight spice: sometimes pick a different counter to avoid being predictable
+      if (!counters.length) return base;
       return counters[Math.floor(Math.random() * counters.length)];
     }
 
     function predictPlayerNext(moves){
       const h = state.history.player;
-      if (h.length === 0) return moves[Math.floor(Math.random() * moves.length)];
-
-      // Frequency map
+      if (!h.length) return moves[Math.floor(Math.random() * moves.length)];
       const freq = new Map(moves.map(m=>[m,0]));
       h.forEach(m => freq.set(m, (freq.get(m)||0)+1));
-
-      // Last-move bias (people repeat moves!)
       const last = h[h.length-1];
       freq.set(last, (freq.get(last)||0) + 2);
-
-      // If streaky, add bias toward the last winning move (human confidence!)
-      // Approx: if you have any history, bias toward most recent move.
-      // (We keep this tiny to avoid “cheating” vibes.)
       if (state.streak >= 2) freq.set(last, (freq.get(last)||0) + 1);
 
-      // Pick max
       let best = moves[0], bestV = -Infinity;
       for (const m of moves){
         const v = freq.get(m) || 0;
@@ -1203,11 +1070,7 @@
       return best;
     }
 
-    // Autoplay
-    function toggleAutoPlay(){
-      if (state.autoplay) stopAutoPlay();
-      else startAutoPlay();
-    }
+    function toggleAutoPlay(){ state.autoplay ? stopAutoPlay() : startAutoPlay(); }
     function startAutoPlay(){
       if (state.autoplay) return;
       state.autoplay = true;
@@ -1215,7 +1078,6 @@
       el.autoplayBtn.classList.add("primary");
       showToast("Autoplay ON");
       buzz(12);
-
       state.autoplayId = setInterval(()=>{
         if (locked) return;
         const mode = MODES[state.mode];
@@ -1234,7 +1096,6 @@
       save();
     }
 
-    // Reset
     function resetGame(){
       stopAutoPlay();
       state.score = { wins:0, losses:0, ties:0 };
@@ -1246,7 +1107,9 @@
       el.cpuDisplay.textContent = "❓";
       el.lastPlayer.textContent = "—";
       el.lastCpu.textContent = "—";
-      el.resultText.textContent = "Reset. Fresh start. (No grudges… allegedly.)";
+      el.resultText.textContent = state.mode === "joe"
+        ? "Reset complete. Joe is already holding a rock."
+        : "Reset. Fresh start. (No grudges… allegedly.)";
       setTag("ready");
       updateHeader();
       updateScoreUI();
@@ -1256,19 +1119,14 @@
       beep("tap");
     }
 
-    // Copy / Share
     async function copyStats(){
       const mode = MODES[state.mode];
       const text =
 `RPS+ (${mode.title})
 Wins: ${state.score.wins}  Losses: ${state.score.losses}  Ties: ${state.score.ties}
 Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast("Copied!");
-      }catch(e){
-        showToast("Copy blocked (browser).");
-      }
+      try{ await navigator.clipboard.writeText(text); showToast("Copied!"); }
+      catch(e){ showToast("Copy blocked (browser)."); }
       buzz(10);
     }
 
@@ -1284,28 +1142,20 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
           await navigator.clipboard.writeText(text);
           showToast("Share not supported — copied instead.");
         }
-      }catch(e){
-        showToast("Share canceled.");
-      }
+      }catch(e){ showToast("Share canceled."); }
     }
 
-    // Settings modal
-    function openSettings(){
-      el.settingsModal.showModal();
-      buzz(10);
-      beep("tap");
-    }
-    function closeSettings(){
-      el.settingsModal.close();
-      buzz(10);
-      beep("tap");
-    }
+    function openSettings(){ el.settingsModal.showModal(); buzz(10); beep("tap"); }
+    function closeSettings(){ el.settingsModal.close(); buzz(10); beep("tap"); }
+    el.settingsBtn.addEventListener("click", openSettings);
 
-    // Confetti (lightweight canvas burst)
-    let confettiCtx = null;
-    let confettiRAF = null;
-    let confettiPieces = [];
+    el.settingsModal.addEventListener("click", (e)=>{
+      const r = el.settingsModal.getBoundingClientRect();
+      const inDialog = (r.top <= e.clientY && e.clientY <= r.bottom && r.left <= e.clientX && e.clientX <= r.right);
+      if (!inDialog) closeSettings();
+    });
 
+    let confettiCtx = null, confettiRAF = null, confettiPieces = [];
     function confettiBurst(){
       const canvas = el.confettiCanvas;
       const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
@@ -1313,7 +1163,6 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       canvas.height = Math.floor(window.innerHeight * dpr);
       canvas.style.width = "100%";
       canvas.style.height = "100%";
-
       confettiCtx = canvas.getContext("2d");
       confettiCtx.setTransform(dpr,0,0,dpr,0,0);
 
@@ -1324,10 +1173,8 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       confettiPieces = [];
       for (let i=0; i<count; i++){
         const a = Math.random() * Math.PI * 2;
-        const s = 2 + Math.random() * 5;
         confettiPieces.push({
-          x: centerX,
-          y: centerY,
+          x: centerX, y: centerY,
           vx: Math.cos(a) * (2 + Math.random()*6),
           vy: Math.sin(a) * (2 + Math.random()*6) - 4,
           w: 3 + Math.random()*5,
@@ -1346,19 +1193,12 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       if (!confettiCtx) return;
       confettiCtx.clearRect(0,0,window.innerWidth,window.innerHeight);
 
-      // draw
       for (const p of confettiPieces){
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.22; // gravity
-        p.r += p.vr;
-        p.life -= 1;
-
+        p.x += p.vx; p.y += p.vy; p.vy += 0.22; p.r += p.vr; p.life -= 1;
         confettiCtx.save();
         confettiCtx.translate(p.x, p.y);
         confettiCtx.rotate(p.r);
         confettiCtx.globalAlpha = Math.max(0, Math.min(1, p.life/110));
-        // no hard-coded colors: use gradients that match theme
         const grad = confettiCtx.createLinearGradient(-p.w,0,p.w,0);
         grad.addColorStop(0, "rgba(124,58,237,.9)");
         grad.addColorStop(1, "rgba(6,182,212,.9)");
@@ -1368,27 +1208,23 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       }
 
       confettiPieces = confettiPieces.filter(p => p.life > 0 && p.y < window.innerHeight + 60);
-
-      if (confettiPieces.length){
-        confettiRAF = requestAnimationFrame(confettiTick);
-      }else{
-        confettiCtx.clearRect(0,0,window.innerWidth,window.innerHeight);
-      }
+      if (confettiPieces.length) confettiRAF = requestAnimationFrame(confettiTick);
+      else confettiCtx.clearRect(0,0,window.innerWidth,window.innerHeight);
     }
 
     function endMatch(won){
       stopAutoPlay();
       const msg = won
-        ? `🏆 Match won! First to ${state.firstTo}. Steve Jobs smiles somewhere.`
-        : `💥 Match lost. First to ${state.firstTo}. Recalibrate, return stronger.`;
+        ? `🏆 Match won! First to ${state.firstTo}.`
+        : `💥 Match lost. First to ${state.firstTo}.`;
+      el.resultText.textContent = state.mode === "joe" && won
+        ? "🏆 Joe wins. Rock wins. Everybody wins. (Except paper.)"
+        : msg;
 
-      el.resultText.textContent = msg;
       setTag(won ? "win" : "lose");
       flashResult();
       if (won && state.confetti) confettiBurst();
 
-      // soft-lock: start a new match but keep lifetime score? We'll reset match score only.
-      // For now: reset match score only after a moment (keeps it flowing on mobile).
       setTimeout(()=>{
         state.score = { wins:0, losses:0, ties:0 };
         state.round = 1;
@@ -1402,10 +1238,8 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       }, 1400);
     }
 
-    // Utilities
     function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
 
-    // Keyboard shortcuts (desktop)
     document.addEventListener("keydown", (e)=>{
       if (e.target && ["INPUT","TEXTAREA","SELECT"].includes(e.target.tagName)) return;
       const mode = MODES[state.mode];
@@ -1416,40 +1250,25 @@ Streak: ${state.streak}  First-to: ${state.firstTo}  Skill: ${state.skill}`;
       if (move) play(move);
     });
 
-    // Wire settings button
-    el.settingsBtn.addEventListener("click", openSettings);
-
-    // Close on click outside (nice on mobile)
-    el.settingsModal.addEventListener("click", (e)=>{
-      const r = el.settingsModal.getBoundingClientRect();
-      const inDialog = (r.top <= e.clientY && e.clientY <= r.bottom && r.left <= e.clientX && e.clientX <= r.right);
-      if (!inDialog) closeSettings();
-    });
-
-    // Startup
     function init(){
       load();
-      // ensure range reflects state
-      el.firstTo.value = String(state.firstTo);
+
+      // ensure mode buttons reflect state
       document.getElementById("modeClassic").classList.toggle("active", state.mode==="classic");
       document.getElementById("modeLizard").classList.toggle("active", state.mode==="rpsls");
+      document.getElementById("modeJoe").classList.toggle("active", state.mode==="joe");
+
       renderChoices();
       updateHeader();
       updateScoreUI();
       setTag("ready");
 
-      if (state.autoplay) {
-        // in case it was saved as ON, start fresh
+      if (state.autoplay){
         state.autoplay = false;
         state.autoplayId = null;
         save();
       }
     }
-
-    // Resize confetti canvas if needed
-    window.addEventListener("resize", ()=>{
-      // canvas auto fits on next burst; no need to do anything heavy here
-    });
 
     init();
   </script>
